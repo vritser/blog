@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>半斤八两</title>
+    <link>https://vritser.github.io/</link>
+    <description>Recent content on 半斤八两</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Jul 2020 16:52:50 +0800</lastBuildDate>
+    
+	<atom:link href="https://vritser.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://vritser.github.io/posts/blog/</link>
+      <pubDate>Mon, 13 Jul 2020 16:52:50 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/posts/blog/</guid>
+      <description>Programming TODOHomebrew Install Homebrew /bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&amp;#34; Check if Homebrew is installed and working properly.
+brew -v Use USTC Mirro Homebrew Core
+# replace brew.git cd &amp;#34;$(brew --repo)&amp;#34; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git # replace homebrew-core.git cd &amp;#34;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;#34; git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git Bottles
+For bash user
+echo &amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile source ~/.bash_profile For zsh user
+echo &amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&amp;#39; &amp;gt;&amp;gt; ~/.zshrc source ~/.zshrc Reset
+# reset brew.</description>
+    </item>
+    
+  </channel>
+</rss>
