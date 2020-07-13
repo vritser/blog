@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 半斤八两</title>
-    <link>https://vritser.github.io/posts/</link>
-    <description>Recent content in Posts on 半斤八两</description>
+    <title>workspace on 半斤八两</title>
+    <link>https://vritser.github.io/tags/workspace/</link>
+    <description>Recent content in workspace on 半斤八两</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 13 Jul 2020 22:12:00 +0800</lastBuildDate>
     
-	<atom:link href="https://vritser.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vritser.github.io/tags/workspace/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -33,15 +33,6 @@ echo &amp;#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew
       
       <guid>https://vritser.github.io/posts/zsh/</guid>
       <description>This post is about zsh and iTerm2</description>
-    </item>
-    
-    <item>
-      <title>使用 Org-Mode、ox-hugo 编写博客</title>
-      <link>https://vritser.github.io/posts/org_with_hugo/</link>
-      <pubDate>Mon, 13 Jul 2020 22:12:00 +0800</pubDate>
-      
-      <guid>https://vritser.github.io/posts/org_with_hugo/</guid>
-      <description>This post is about org and hugo</description>
     </item>
     
   </channel>
