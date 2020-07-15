@@ -6,7 +6,7 @@
     <description>Recent content in orgmode on 半斤八两</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jul 2020 22:12:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2020 18:53:39 +0800</lastBuildDate>
     
 	<atom:link href="https://vritser.github.io/tags/orgmode/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,10 +14,19 @@
     <item>
       <title>使用 Org-Mode、ox-hugo 编写博客</title>
       <link>https://vritser.github.io/posts/org_with_hugo/</link>
-      <pubDate>Mon, 13 Jul 2020 22:12:00 +0800</pubDate>
+      <pubDate>Wed, 15 Jul 2020 18:53:39 +0800</pubDate>
       
       <guid>https://vritser.github.io/posts/org_with_hugo/</guid>
-      <description>This post is about org and hugo</description>
+      <description>介绍 hugo
+Install
+Configure
+org-capture
+ox-hugo
+Preview
+Github Pages
+Publish to github pages
+Auto publish
+EOF</description>
     </item>
     
   </channel>
