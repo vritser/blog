@@ -79,17 +79,132 @@
 <article>
   <header>
     <a href="https://vritser.github.io/categories/hugo/">HUGO</a><h1>使用 Org-Mode、ox-hugo 编写博客</h1>
-    <time datetime="2020-07-15T19:14:36&#43;08:00">July 15, 2020</time>
+    <time datetime="2020-07-17T14:21:00&#43;08:00">July 17, 2020</time>
   </header>
-  <p><strong>介绍 hugo</strong></p>
-<p><strong>Install</strong></p>
-<p><strong>Configure</strong></p>
-<p><strong>org-capture</strong></p>
-<p><strong>ox-hugo</strong></p>
-<p><strong>Preview</strong></p>
-<p><strong>Github Pages</strong></p>
-<p><strong>Publish to github pages</strong></p>
-<p><strong>Auto publish</strong></p>
+  <h2 id="hugo-site-config">Hugo site config</h2>
+<p><code>config.yaml</code></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#a2f;font-weight:bold">baseURL</span>:<span style="color:#bbb"> </span><span style="color:#b44">&#34;your site url&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">languageCode</span>:<span style="color:#bbb"> </span><span style="color:#b44">&#34;en-us&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">title</span>:<span style="color:#bbb"> </span><span style="color:#b44">&#34;title&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">theme</span>:<span style="color:#bbb"> </span>contrast<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">buildDrafts</span>:<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">false</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#080;font-style:italic"># Code Fences 渲染相关</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">markup</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">highlight</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">codeFences</span>:<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">true</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">guessSyntax</span>:<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">false</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">hl_Lines</span>:<span style="color:#bbb"> </span><span style="color:#b44">&#34;&#34;</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">lineNoStart</span>:<span style="color:#bbb"> </span><span style="color:#666">1</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">lineNos</span>:<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">false</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">lineNumbersInTable</span>:<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">true</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">noClasses</span>:<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">true</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">style</span>:<span style="color:#bbb"> </span>emacs<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">tabWidth</span>:<span style="color:#bbb"> </span><span style="color:#666">4</span><span style="color:#bbb">
+</span></code></pre></div><h2 id="ox-hugo">ox-hugo</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#a2f">use-package</span> <span style="color:#b8860b">ox-hugo</span>
+  <span style="color:#a2f">:ensure</span> <span style="color:#800">t</span>            <span style="color:#080;font-style:italic">;Auto-install the package from Melpa (optional)</span>
+  <span style="color:#a2f">:after</span> <span style="color:#b8860b">ox</span>)
+
+(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;org-export-backends</span> <span style="color:#b8860b">&#39;hugo</span>)
+</code></pre></div><p>将以下代码片段放入你的 <code>blog.org</code> 文件头部,  <a href="https://ox-hugo.scripter.co/doc/hugo-section/">配置含义</a></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-org" data-lang="org"><span style="color:#080;font-weight:bold">#+HUGO_BASE_DIR</span><span style="color:#080;font-style:italic">: ~/Documents/org/blog</span>
+<span style="color:#080;font-weight:bold">#+SEQ_TODO</span><span style="color:#080;font-style:italic">: TODO DRAFT DONE</span>
+<span style="color:#080;font-weight:bold">#+HUGO_AUTO_SET_LASTMOD</span><span style="color:#080;font-style:italic">: t</span>
+<span style="color:#080;font-weight:bold">#+PROPERTY</span><span style="color:#080;font-style:italic">: header-args :eval no</span>
+</code></pre></div><h2 id="org-capture-setup">Org Capture Setup</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#a2f">defun</span> <span style="color:#b8860b">v-org-hugo-new-subtree-post-capture-template</span> ()
+  <span style="color:#b44">&#34;Returns `org-capture` template string for the new Hugo post.&#34;</span>
+  (<span style="color:#a2f">let*</span> ((<span style="color:#b8860b">title</span> (<span style="color:#00a000">read-from-minibuffer</span> <span style="color:#b44">&#34;Post Title: &#34;</span>))
+         (<span style="color:#b8860b">fname</span> (<span style="color:#b8860b">org-hugo-slug</span> <span style="color:#b8860b">title</span>)))
+    (<span style="color:#00a000">mapconcat</span> <span style="color:#00a000">#&#39;identity</span> <span style="color:#666">`</span>(
+                            <span style="color:#666">,</span>(<span style="color:#00a000">concat</span> <span style="color:#b44">&#34;** TODO &#34;</span> <span style="color:#b8860b">title</span>)
+                            <span style="color:#b44">&#34;:PROPERTIES:&#34;</span>
+                            <span style="color:#666">,</span>(<span style="color:#00a000">concat</span> <span style="color:#b44">&#34;:EXPORT_FILE_NAME: &#34;</span> <span style="color:#b8860b">fname</span>)
+                            <span style="color:#b44">&#34;:END:&#34;</span>
+                            <span style="color:#b44">&#34;%?\n&#34;</span>)
+               <span style="color:#b44">&#34;\n&#34;</span>)))
+
+(<span style="color:#b8860b">add-to-list</span> <span style="color:#b8860b">&#39;org-capture-templates</span>
+             <span style="color:#666">&#39;</span>(<span style="color:#b44">&#34;b&#34;</span>                <span style="color:#080;font-style:italic">;`org-capture&#39; binding + b</span>
+               <span style="color:#b44">&#34;Hugo post&#34;</span>
+               <span style="color:#b8860b">entry</span>
+               <span style="color:#080;font-style:italic">;; It is assumed that below file is present in `org-directory&#39;</span>
+               <span style="color:#080;font-style:italic">;; and that it has a &#34;Blog Ideas&#34; heading. It can even be a</span>
+               <span style="color:#080;font-style:italic">;; symlink pointing to the actual location of all-posts.org!</span>
+               (<span style="color:#b8860b">file+headline</span> <span style="color:#b44">&#34;/path/to/your/org&#34;</span> <span style="color:#b44">&#34;INBOX&#34;</span>)
+               (<span style="color:#a2f">function</span> <span style="color:#b8860b">org-hugo-new-subtree-post-capture-template</span>))))
+</code></pre></div><h2 id="preview">Preview</h2>
+<ul>
+<li>
+<p><strong>使用 ox-hugo 导出</strong></p>
+<ul>
+<li>Subtree: <code>C-c C-e H H</code></li>
+<li>All subtrees <code>C-c C-e H A</code></li>
+</ul>
+</li>
+<li>
+<p><strong>启动 hugo 服务</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo server -D
+</code></pre></div></li>
+<li>
+<p><strong>浏览器预览</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">open http://localhost:1313/
+</code></pre></div></li>
+<li>
+<p><strong>自动导出</strong></p>
+<p><code>M-x org-hugo-auto-export-mode</code></p>
+</li>
+</ul>
+<h2 id="publish-to-github-pages">Publish to github pages</h2>
+<ul>
+<li>
+<p>生成静态文件</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">hugo -D
+</code></pre></div></li>
+<li>
+<p>初始化 git 仓库</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#a2f">cd</span> public
+git init
+git remote add origin git@github.com:vritser/vritser.github.io.git
+</code></pre></div></li>
+<li>
+<p>提交&amp;推送</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add .
+git commit -m <span style="color:#b44">&#34;init&#34;</span>
+git push origin master
+</code></pre></div></li>
+</ul>
+<h2 id="auto-publish">Auto publish</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#a2f">defun</span> <span style="color:#b8860b">publish-hugo-posts-to-github-pages</span> ()
+  <span style="color:#b44">&#34;Auto publish to github pages.&#34;</span>
+  (<span style="color:#a2f">interactive</span>)
+  (<span style="color:#b8860b">org-hugo-export-wim-to-md</span> <span style="color:#800">t</span> <span style="color:#800">nil</span> <span style="color:#800">nil</span>)
+  (<span style="color:#b8860b">async-shell-command</span> <span style="color:#b44">&#34;sh ~/Documents/org/deploy.sh&#34;</span>))
+
+(<span style="color:#a2f">defalias</span> <span style="color:#b8860b">&#39;hp</span> <span style="color:#b8860b">&#39;publish-hugo-posts-to-github-pages</span>)
+</code></pre></div><p><code>deploy.sh</code></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#080">#!/bin/bash
+</span><span style="color:#080"></span><span style="color:#a2f">cd</span> blog
+hugo -D
+
+<span style="color:#a2f">cd</span> public
+git add .
+git commit -m <span style="color:#b44">&#34;rebuild site `date`&#34;</span>
+git push
+</code></pre></div><blockquote>
+<p>以上文件路径按需修改</p>
+</blockquote>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Org-mode: <a href="https://orgmode.org/">https://orgmode.org/</a></li>
+<li>Hugo: <a href="https://gohugo.io/getting-started/quick-start/">https://gohugo.io/getting-started/quick-start/</a></li>
+<li>Hugo themes: <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a></li>
+<li>Hugo markup: <a href="https://gohugo.io/getting-started/configuration-markup">https://gohugo.io/getting-started/configuration-markup</a></li>
+<li>Highlight: <a href="https://xyproto.github.io/splash/docs/all.html">https://xyproto.github.io/splash/docs/all.html</a></li>
+<li>ox-hugo: <a href="https://ox-hugo.scripter.co/">https://ox-hugo.scripter.co/</a></li>
+<li>My Emacs config: <a href="https://github.com/vritser/.emacs.d">https://github.com/vritser/.emacs.d</a></li>
+</ul>
 <p>EOF</p>
 
 </article>

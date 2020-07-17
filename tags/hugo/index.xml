@@ -6,7 +6,7 @@
     <description>Recent content in hugo on 半斤八两</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jul 2020 19:14:36 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jul 2020 14:21:00 +0800</lastBuildDate>
     
 	<atom:link href="https://vritser.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,19 +14,12 @@
     <item>
       <title>使用 Org-Mode、ox-hugo 编写博客</title>
       <link>https://vritser.github.io/posts/org_with_hugo/</link>
-      <pubDate>Wed, 15 Jul 2020 19:14:36 +0800</pubDate>
+      <pubDate>Fri, 17 Jul 2020 14:21:00 +0800</pubDate>
       
       <guid>https://vritser.github.io/posts/org_with_hugo/</guid>
-      <description>介绍 hugo
-Install
-Configure
-org-capture
-ox-hugo
-Preview
-Github Pages
-Publish to github pages
-Auto publish
-EOF</description>
+      <description>Hugo site config config.yaml
+baseURL:&amp;#34;your site url&amp;#34;languageCode:&amp;#34;en-us&amp;#34;title:&amp;#34;title&amp;#34;theme:contrastbuildDrafts:false# Code Fences 渲染相关markup:highlight:codeFences:trueguessSyntax:falsehl_Lines:&amp;#34;&amp;#34;lineNoStart:1lineNos:falselineNumbersInTable:truenoClasses:truestyle:emacstabWidth:4ox-hugo (use-package ox-hugo :ensure t ;Auto-install the package from Melpa (optional) :after ox) (add-to-list &amp;#39;org-export-backends &amp;#39;hugo) 将以下代码片段放入你的 blog.org 文件头部, 配置含义
+#+HUGO_BASE_DIR: ~/Documents/org/blog #+SEQ_TODO: TODO DRAFT DONE #+HUGO_AUTO_SET_LASTMOD: t #+PROPERTY: header-args :eval no Org Capture Setup (defun v-org-hugo-new-subtree-post-capture-template () &amp;#34;Returns `org-capture` template string for the new Hugo post.&amp;#34; (let* ((title (read-from-minibuffer &amp;#34;Post Title: &amp;#34;)) (fname (org-hugo-slug title))) (mapconcat #&amp;#39;identity `( ,(concat &amp;#34;** TODO &amp;#34; title) &amp;#34;:PROPERTIES:&amp;#34; ,(concat &amp;#34;:EXPORT_FILE_NAME: &amp;#34; fname) &amp;#34;:END:&amp;#34; &amp;#34;%?</description>
     </item>
     
   </channel>
