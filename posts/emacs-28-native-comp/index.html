@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<title>Mac | 半斤八两</title>
+<title>Build Emacs 28 on branch feature/native-comp | 半斤八两</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.73.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://vritser.github.io/css/index.css">
 <link rel="stylesheet" href="https://vritser.github.io/css/classes.css">
-<link rel="canonical" href="https://vritser.github.io/categories/mac/">
-<link rel="alternate" type="application/rss+xml" href="/categories/mac/index.xml" title="半斤八两">
+<link rel="canonical" href="https://vritser.github.io/posts/emacs-28-native-comp/">
+<link rel="alternate" type="application/rss+xml" href="" title="半斤八两">
 
 <body>
 
@@ -76,32 +76,46 @@
   
 </header>
 
-
-
-
-
-
-
 <article>
-  <header><h1>Mac</h1></header>
-  <ul class="archive">
-    <li>
-      <time datetime="2020-07-20T02:48:00&#43;08:00">2020-07-20</time>
-      <a href="https://vritser.github.io/posts/emacs-28-native-comp/">Build Emacs 28 on branch feature/native-comp</a>
-    </li>
-    <li>
-      <time datetime="2020-07-15T18:35:00&#43;08:00">2020-07-15</time>
-      <a href="https://vritser.github.io/posts/omz/">Oh My Zsh</a>
-    </li>
-    <li>
-      <time datetime="2020-07-13T22:37:00&#43;08:00">2020-07-13</time>
-      <a href="https://vritser.github.io/posts/homebrew/">Homebrew</a>
-    </li>
-  </ul>
-  
+  <header>
+    <a href="https://vritser.github.io/categories/mac/">MAC</a><h1>Build Emacs 28 on branch feature/native-comp</h1>
+    <time datetime="2020-07-20T02:48:00&#43;08:00">July 20, 2020</time>
+  </header>
+  <h2 id="add-jit-support-to-gcc">Add JIT support to GCC</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">curl https://raw.githubusercontent.com/jixiuf/vmacs/master/bin/gcc9.3.patch --output gcc.jit.patch
+<span style="color:#a2f">cd</span> <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">brew</span> --repo<span style="color:#b68;font-weight:bold">}</span>/Library/Taps/homebrew/homebrew-core
+git apply /path/to/gcc.jit.patch
+brew install --build-from-source gcc
+</code></pre></div><h2 id="clone-emacs-feature-native-comp-branch">Clone Emacs feature/native-comp branch</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git clone -b feature/native-comp https://github.com/emacs-mirror/emacs.git --depth<span style="color:#666">=</span><span style="color:#666">1</span>
+</code></pre></div><h2 id="build">Build</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#a2f">cd</span> emacs
+<span style="color:#a2f">export</span> <span style="color:#b8860b">PATH</span><span style="color:#666">=</span><span style="color:#b44">&#34;/usr/local/opt/gnu-sed/libexec/gnubin:</span><span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">PATH</span><span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">&#34;</span>
+<span style="color:#a2f">export</span> <span style="color:#b8860b">LDFLAGS</span><span style="color:#666">=</span><span style="color:#b44">&#34;-L/usr/local/lib/gcc/your version&#34;</span>
+git clean -fdx
+
+./autogen.sh
+<span style="color:#b8860b">CC</span><span style="color:#666">=</span><span style="color:#b44">&#39;clang&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  ./configure <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --disable-silent-rules <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --enable-locallisppath<span style="color:#666">=</span>/usr/local/share/emacs/site-lisp <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --prefix<span style="color:#666">=</span><span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">HOME</span><span style="color:#b68;font-weight:bold">}</span>/gccemacs <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --with-nativecomp <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --with-ns <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span>  --disable-ns-self-contained <span style="color:#b62;font-weight:bold">\
+</span><span style="color:#b62;font-weight:bold"></span><span style="color:#080;font-style:italic">#  --with-mailutils</span>
+make -j8
+
+make install -j8
+</code></pre></div><h2 id="link-emacs-dot-app">Link Emacs.app</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp -rf nextstep/Emacs.app  /Applications/Emacs.app
+ln -s <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">prefix</span><span style="color:#b68;font-weight:bold">}</span>/gccemacs/share/emacs/28.0.50/lisp /Applications/Emacs.app/Contents/lisp
+</code></pre></div><h2 id="references">References</h2>
+<ul>
+<li><a href="https://emacs-china.org/t/macos-emacs-28-native-comp/12201">https://emacs-china.org/t/macos-emacs-28-native-comp/12201</a></li>
+</ul>
+
 </article>
-
-
 
 
 
