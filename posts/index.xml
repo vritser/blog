@@ -6,10 +6,21 @@
     <description>Recent content in Posts on 半斤八两</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2020 02:48:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2020 22:35:00 +0800</lastBuildDate>
     
 	<atom:link href="https://vritser.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Emacs Capture Anywhere</title>
+      <link>https://vritser.github.io/posts/capture-anywhere/</link>
+      <pubDate>Mon, 27 Jul 2020 22:35:00 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/posts/capture-anywhere/</guid>
+      <description>Effects Register emacsclient as the org-protocol handler For macOS
+Start ScriptEditor. Paste the following snippets:
+on emacsclient(input) do shell script &amp;#34;/path/to/your/emacsclient -n -c &amp;#39;&amp;#34; &amp;amp; input &amp;amp; &amp;#34;&amp;#39;&amp;#34; tell application &amp;#34;Emacs&amp;#34; to activate end emacsclient on open location input emacsclient(input) end open location on open inputs repeat with raw_input in inputs set input to POSIX path of raw_input emacsclient(input) end repeat end open on run do shell script emacsclient(&amp;#34;&amp;#34;) end run Adjust the paths and save it (with &amp;lsquo;type&amp;rsquo; as Application) under /Applications/EmacsClient.</description>
+    </item>
     
     <item>
       <title>Build Emacs 28 on branch feature/native-comp</title>

@@ -3,28 +3,43 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://vritser.github.io/posts/emacs-28-native-comp/</loc>
-    <lastmod>2020-07-20T03:04:54+08:00</lastmod>
+    <loc>https://vritser.github.io/categories/</loc>
+    <lastmod>2020-07-27T22:49:14+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://vritser.github.io/categories/</loc>
-    <lastmod>2020-07-20T03:04:55+08:00</lastmod>
+    <loc>https://vritser.github.io/posts/capture-anywhere/</loc>
+    <lastmod>2020-07-27T22:49:14+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://vritser.github.io/categories/mac/</loc>
-    <lastmod>2020-07-20T03:04:54+08:00</lastmod>
+    <lastmod>2020-07-27T22:49:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vritser.github.io/tags/org/</loc>
+    <lastmod>2020-07-27T22:49:14+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://vritser.github.io/posts/</loc>
-    <lastmod>2020-07-20T03:04:55+08:00</lastmod>
+    <lastmod>2020-07-27T22:49:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vritser.github.io/tags/</loc>
+    <lastmod>2020-07-27T22:49:14+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://vritser.github.io/</loc>
-    <lastmod>2020-07-20T03:04:55+08:00</lastmod>
+    <lastmod>2020-07-27T22:49:14+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vritser.github.io/posts/emacs-28-native-comp/</loc>
+    <lastmod>2020-07-20T03:04:54+08:00</lastmod>
   </url>
   
   <url>
@@ -39,11 +54,6 @@
   
   <url>
     <loc>https://vritser.github.io/tags/orgmode/</loc>
-    <lastmod>2020-07-20T03:04:55+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vritser.github.io/tags/</loc>
     <lastmod>2020-07-20T03:04:55+08:00</lastmod>
   </url>
   
