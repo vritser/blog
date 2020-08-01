@@ -1,13 +1,13 @@
 @media (min-width: 50em) {
   @font-face {
-    font-family: 'Monaco';
-    src: local("Monaco"), local("Monaco-Regular"), url("../fonts/monaco-webfont.woff") format("woff");
+    font-family: 'PT Sans';
+    src: local("PT Sans"), local("PTSans-Regular"), url("../fonts/PTSans-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
   }
   @font-face {
-    font-family: 'Monaco';
-    src: local("Monaco"), local("Monaco-Bold"), url("../fonts/monaco-webfont.woff") format("woff");
+    font-family: 'PT Sans';
+    src: local("PT Sans Bold"), local("PTSans-Bold"), url("../fonts/PTSans-Bold.woff") format("woff");
     font-weight: bold;
     font-style: normal;
   }
@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  font-family: "Monaco", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Roboto", sans-serif;
+  font-family: "PT Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Roboto", sans-serif;
   font-weight: 400;
   line-height: 1.6;
   margin: 0;

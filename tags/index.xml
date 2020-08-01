@@ -6,10 +6,28 @@
     <description>Recent content in Tags on 半斤八两</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jul 2020 22:35:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2020 14:15:00 +0800</lastBuildDate>
     
 	<atom:link href="https://vritser.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>emacs</title>
+      <link>https://vritser.github.io/tags/emacs/</link>
+      <pubDate>Sat, 01 Aug 2020 14:15:00 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>magit</title>
+      <link>https://vritser.github.io/tags/magit/</link>
+      <pubDate>Sat, 01 Aug 2020 14:15:00 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/tags/magit/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>org</title>
@@ -39,11 +57,38 @@
     </item>
     
     <item>
-      <title>workspace</title>
-      <link>https://vritser.github.io/tags/workspace/</link>
+      <title>iterm2</title>
+      <link>https://vritser.github.io/tags/iterm2/</link>
       <pubDate>Wed, 15 Jul 2020 18:35:00 +0800</pubDate>
       
-      <guid>https://vritser.github.io/tags/workspace/</guid>
+      <guid>https://vritser.github.io/tags/iterm2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://vritser.github.io/tags/shell/</link>
+      <pubDate>Wed, 15 Jul 2020 18:35:00 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zsh</title>
+      <link>https://vritser.github.io/tags/zsh/</link>
+      <pubDate>Wed, 15 Jul 2020 18:35:00 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/tags/zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>brew</title>
+      <link>https://vritser.github.io/tags/brew/</link>
+      <pubDate>Mon, 13 Jul 2020 22:37:00 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/tags/brew/</guid>
       <description></description>
     </item>
     

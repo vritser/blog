@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on 半斤八两</title>
+    <link>https://vritser.github.io/tags/shell/</link>
+    <description>Recent content in shell on 半斤八两</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jul 2020 18:35:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://vritser.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Oh My Zsh</title>
+      <link>https://vritser.github.io/posts/omz/</link>
+      <pubDate>Wed, 15 Jul 2020 18:35:00 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/posts/omz/</guid>
+      <description>Install iTerm2 brew cask install iterm2 Install oh-my-zsh via curl
+sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34; via wget
+sh -c &amp;#34;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&amp;#34; Themes ZSH_THEME=&amp;#34;your theme name&amp;#34; source ~/.zshrc NOTE: Some themes need to install Powerline-patched font to render correctly.
+git clone https://github.com/powerline/fonts --depth=1 cd fonts ./install.sh cd .. &amp;amp;&amp;amp; rm -rf fonts To test if your terminal and font support it, copy the following command to your terminal:
+echo &amp;#34;\ue0b0 \u00b1 \ue0a0 \u27a6 \u2718 \u26a1 \u2699&amp;#34; Uninstall</description>
+    </item>
+    
+  </channel>
+</rss>

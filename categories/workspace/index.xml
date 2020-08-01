@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 半斤八两</title>
-    <link>https://vritser.github.io/posts/</link>
-    <description>Recent content in Posts on 半斤八两</description>
+    <title>Workspace on 半斤八两</title>
+    <link>https://vritser.github.io/categories/workspace/</link>
+    <description>Recent content in Workspace on 半斤八两</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 01 Aug 2020 14:15:00 +0800</lastBuildDate>
     
-	<atom:link href="https://vritser.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vritser.github.io/categories/workspace/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -38,17 +38,6 @@ on emacsclient(input) do shell script &amp;#34;/path/to/your/emacsclient -n -c &
       
       <guid>https://vritser.github.io/posts/emacs-28-native-comp/</guid>
       <description>Add JIT support to GCC curl https://raw.githubusercontent.com/vritser/dotfiles/master/gcc.jit.patch --output gcc.jit.patch cd ${brew --repo}/Library/Taps/homebrew/homebrew-core git apply /path/to/gcc.jit.patch brew install --build-from-source gcc Clone Emacs feature/native-comp branch git clone -b feature/native-comp https://github.com/emacs-mirror/emacs.git --depth=1 Build cd emacs export PATH=&amp;#34;/usr/local/opt/gnu-sed/libexec/gnubin:${PATH}&amp;#34; export LDFLAGS=&amp;#34;-L/usr/local/lib/gcc/your version&amp;#34; git clean -fdx ./autogen.sh CC=&amp;#39;clang&amp;#39; \  ./configure \  --disable-silent-rules \  --enable-locallisppath=/usr/local/share/emacs/site-lisp \  --prefix=${HOME}/gccemacs \  --with-nativecomp \  --with-ns \  --disable-ns-self-contained \ # --with-mailutils make -j8 make install -j8 Link Emacs.</description>
-    </item>
-    
-    <item>
-      <title>使用 Org-Mode、ox-hugo 编写博客</title>
-      <link>https://vritser.github.io/posts/org_with_hugo/</link>
-      <pubDate>Fri, 17 Jul 2020 14:21:00 +0800</pubDate>
-      
-      <guid>https://vritser.github.io/posts/org_with_hugo/</guid>
-      <description>Hugo site config config.yaml
-baseURL:&amp;#34;your site url&amp;#34;languageCode:&amp;#34;en-us&amp;#34;title:&amp;#34;title&amp;#34;theme:contrastbuildDrafts:false# Code Fences 渲染相关markup:highlight:codeFences:trueguessSyntax:falsehl_Lines:&amp;#34;&amp;#34;lineNoStart:1lineNos:falselineNumbersInTable:truenoClasses:truestyle:emacstabWidth:4ox-hugo (use-package ox-hugo :ensure t ;Auto-install the package from Melpa (optional) :after ox) (add-to-list &amp;#39;org-export-backends &amp;#39;hugo) 将以下代码片段放入你的 blog.org 文件头部, 配置含义
-#+HUGO_BASE_DIR: ~/Documents/org/blog #+SEQ_TODO: TODO DRAFT DONE #+HUGO_AUTO_SET_LASTMOD: t #+PROPERTY: header-args :eval no Org Capture Setup (defun v-org-hugo-new-subtree-post-capture-template () &amp;#34;Returns `org-capture` template string for the new Hugo post.&amp;#34; (let* ((title (read-from-minibuffer &amp;#34;Post Title: &amp;#34;)) (fname (org-hugo-slug title))) (mapconcat #&amp;#39;identity `( ,(concat &amp;#34;** TODO &amp;#34; title) &amp;#34;:PROPERTIES:&amp;#34; ,(concat &amp;#34;:EXPORT_FILE_NAME: &amp;#34; fname) &amp;#34;:END:&amp;#34; &amp;#34;%?</description>
     </item>
     
     <item>

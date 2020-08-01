@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<title>Posts | 半斤八两</title>
+<title>Magit Resolve Conflict | 半斤八两</title>
 <meta charset="utf-8">
 <meta name="generator" content="Hugo 0.73.0" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://vritser.github.io/css/index.css">
 <link rel="stylesheet" href="https://vritser.github.io/css/classes.css">
-<link rel="canonical" href="https://vritser.github.io/posts/">
-<link rel="alternate" type="application/rss+xml" href="/posts/index.xml" title="半斤八两">
+<link rel="canonical" href="https://vritser.github.io/posts/emacs-resolve-conflict/">
+<link rel="alternate" type="application/rss+xml" href="" title="半斤八两">
 
 <body>
 
@@ -76,44 +76,34 @@
   
 </header>
 
-
-
-
-
-
-
 <article>
-  <header><h1>Posts</h1></header>
-  <ul class="archive">
-    <li>
-      <time datetime="2020-08-01T14:15:00&#43;08:00">2020-08-01</time>
-      <a href="https://vritser.github.io/posts/emacs-resolve-conflict/">Magit Resolve Conflict</a>
-    </li>
-    <li>
-      <time datetime="2020-07-27T22:35:00&#43;08:00">2020-07-27</time>
-      <a href="https://vritser.github.io/posts/capture-anywhere/">Emacs Capture Anywhere</a>
-    </li>
-    <li>
-      <time datetime="2020-07-20T02:48:00&#43;08:00">2020-07-20</time>
-      <a href="https://vritser.github.io/posts/emacs-28-native-comp/">Build Emacs 28 on branch feature/native-comp</a>
-    </li>
-    <li>
-      <time datetime="2020-07-17T14:21:00&#43;08:00">2020-07-17</time>
-      <a href="https://vritser.github.io/posts/org_with_hugo/">使用 Org-Mode、ox-hugo 编写博客</a>
-    </li>
-    <li>
-      <time datetime="2020-07-15T18:35:00&#43;08:00">2020-07-15</time>
-      <a href="https://vritser.github.io/posts/omz/">Oh My Zsh</a>
-    </li>
-    <li>
-      <time datetime="2020-07-13T22:37:00&#43;08:00">2020-07-13</time>
-      <a href="https://vritser.github.io/posts/homebrew/">Homebrew</a>
-    </li>
-  </ul>
-  
+  <header>
+    <a href="https://vritser.github.io/categories/workspace/">WORKSPACE</a><h1>Magit Resolve Conflict</h1>
+    <time datetime="2020-08-01T14:15:00&#43;08:00">August 01, 2020</time>
+  </header>
+  <h2 id="一般流程">一般流程</h2>
+<ol>
+<li>在 git 项目打开 magit: <code>M-x magit-status</code></li>
+<li>拉取/合并上游代码</li>
+<li>与上游代码产生了冲突, 找到有冲突的文件, 回车打开该文件</li>
+<li>保留自己的改动: <code>C-c ^ u</code></li>
+<li>保留别人的改动: <code>C-c ^ l</code></li>
+<li>全部保留: <code>C-c ^ a</code></li>
+<li>如果一个文件有多处冲突, 使用 <code>C-c ^ n</code> 跳到下一处冲突, <code>C-c ^ p</code> 跳到上一处冲突</li>
+</ol>
+<h2 id="修改按键绑定">修改按键绑定</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#00a000">define-key</span> <span style="color:#b8860b">smerge-mode-map</span> (<span style="color:#b8860b">kbd</span> <span style="color:#b44">&#34;C-p&#34;</span>) <span style="color:#b8860b">&#39;smerge-prev</span>)
+(<span style="color:#00a000">define-key</span> <span style="color:#b8860b">smerge-mode-map</span> (<span style="color:#b8860b">kbd</span> <span style="color:#b44">&#34;C-n&#34;</span>) <span style="color:#b8860b">&#39;smerge-next</span>)
+(<span style="color:#00a000">define-key</span> <span style="color:#b8860b">smerge-mode-map</span> (<span style="color:#b8860b">kbd</span> <span style="color:#b44">&#34;C-c u&#34;</span>) <span style="color:#b8860b">&#39;smerge-keep-upper</span>)
+(<span style="color:#00a000">define-key</span> <span style="color:#b8860b">smerge-mode-map</span> (<span style="color:#b8860b">kbd</span> <span style="color:#b44">&#34;C-c o&#34;</span>) <span style="color:#b8860b">&#39;smerge-keep-lower</span>)
+(<span style="color:#00a000">define-key</span> <span style="color:#b8860b">smerge-mode-map</span> (<span style="color:#b8860b">kbd</span> <span style="color:#b44">&#34;C-c a&#34;</span>) <span style="color:#b8860b">&#39;smerge-keep-all</span>)
+</code></pre></div><h2 id="资源">资源</h2>
+<ul>
+<li>Magit: <a href="https://magit.vc">https://magit.vc</a></li>
+<li>Video: <a href="https://emacsgifs.github.io/public/videos/758861381898637313.mp4">https://emacsgifs.github.io/public/videos/758861381898637313.mp4</a></li>
+</ul>
+
 </article>
-
-
 
 
 

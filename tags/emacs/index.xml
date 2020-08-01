@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>emacs on 半斤八两</title>
+    <link>https://vritser.github.io/tags/emacs/</link>
+    <description>Recent content in emacs on 半斤八两</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Aug 2020 14:15:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://vritser.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Magit Resolve Conflict</title>
+      <link>https://vritser.github.io/posts/emacs-resolve-conflict/</link>
+      <pubDate>Sat, 01 Aug 2020 14:15:00 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/posts/emacs-resolve-conflict/</guid>
+      <description>一般流程  在 git 项目打开 magit: M-x magit-status 拉取/合并上游代码 与上游代码产生了冲突, 找到有冲突的文件, 回车打开该文件 保留自己的改动: C-c ^ u 保留别人的改动: C-c ^ l 全部保留: C-c ^ a 如果一个文件有多处冲突, 使用 C-c ^ n 跳到下一处冲突, C-c ^ p 跳到上一处冲突  修改按键绑定 (define-key smerge-mode-map (kbd &amp;#34;C-p&amp;#34;) &amp;#39;smerge-prev) (define-key smerge-mode-map (kbd &amp;#34;C-n&amp;#34;) &amp;#39;smerge-next) (define-key smerge-mode-map (kbd &amp;#34;C-c u&amp;#34;) &amp;#39;smerge-keep-upper) (define-key smerge-mode-map (kbd &amp;#34;C-c o&amp;#34;) &amp;#39;smerge-keep-lower) (define-key smerge-mode-map (kbd &amp;#34;C-c a&amp;#34;) &amp;#39;smerge-keep-all) 资源  Magit: https://magit.vc Video: https://emacsgifs.github.io/public/videos/758861381898637313.mp4  </description>
+    </item>
+    
+    <item>
+      <title>Emacs Capture Anywhere</title>
+      <link>https://vritser.github.io/posts/capture-anywhere/</link>
+      <pubDate>Mon, 27 Jul 2020 22:35:00 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/posts/capture-anywhere/</guid>
+      <description>Effects Register emacsclient as the org-protocol handler For macOS
+Start ScriptEditor. Paste the following snippets:
+on emacsclient(input) do shell script &amp;#34;/path/to/your/emacsclient -n -c &amp;#39;&amp;#34; &amp;amp; input &amp;amp; &amp;#34;&amp;#39;&amp;#34; tell application &amp;#34;Emacs&amp;#34; to activate end emacsclient on open location input emacsclient(input) end open location on open inputs repeat with raw_input in inputs set input to POSIX path of raw_input emacsclient(input) end repeat end open on run do shell script emacsclient(&amp;#34;&amp;#34;) end run Adjust the paths and save it (with &amp;lsquo;type&amp;rsquo; as Application) under /Applications/EmacsClient.</description>
+    </item>
+    
+    <item>
+      <title>Build Emacs 28 on branch feature/native-comp</title>
+      <link>https://vritser.github.io/posts/emacs-28-native-comp/</link>
+      <pubDate>Mon, 20 Jul 2020 02:48:00 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/posts/emacs-28-native-comp/</guid>
+      <description>Add JIT support to GCC curl https://raw.githubusercontent.com/vritser/dotfiles/master/gcc.jit.patch --output gcc.jit.patch cd ${brew --repo}/Library/Taps/homebrew/homebrew-core git apply /path/to/gcc.jit.patch brew install --build-from-source gcc Clone Emacs feature/native-comp branch git clone -b feature/native-comp https://github.com/emacs-mirror/emacs.git --depth=1 Build cd emacs export PATH=&amp;#34;/usr/local/opt/gnu-sed/libexec/gnubin:${PATH}&amp;#34; export LDFLAGS=&amp;#34;-L/usr/local/lib/gcc/your version&amp;#34; git clean -fdx ./autogen.sh CC=&amp;#39;clang&amp;#39; \  ./configure \  --disable-silent-rules \  --enable-locallisppath=/usr/local/share/emacs/site-lisp \  --prefix=${HOME}/gccemacs \  --with-nativecomp \  --with-ns \  --disable-ns-self-contained \ # --with-mailutils make -j8 make install -j8 Link Emacs.</description>
+    </item>
+    
+  </channel>
+</rss>
