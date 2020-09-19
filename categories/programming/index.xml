@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on 半斤八两</title>
+    <link>https://vritser.github.io/categories/programming/</link>
+    <description>Recent content in Programming on 半斤八两</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Sep 2020 14:57:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://vritser.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nexus3 on Kubernetes</title>
+      <link>https://vritser.github.io/posts/nexus3-on-kubernetes/</link>
+      <pubDate>Sat, 19 Sep 2020 14:57:00 +0800</pubDate>
+      
+      <guid>https://vritser.github.io/posts/nexus3-on-kubernetes/</guid>
+      <description>编写 Nexus 声明文件 apiVersion:v1kind:PersistentVolumemetadata:name:nexus-dataspec:capacity:storage:5GiaccessModes:- ReadWriteOncepersistentVolumeReclaimPolicy:RetainhostPath:path:/root/data/nexus-data---apiVersion:v1kind:PersistentVolumeClaimmetadata:name:nexus-data-pvcspec:accessModes:- ReadWriteOnceresources:requests:storage:5Gi---apiVersion:apps/v1kind:Deploymentmetadata:name:nexusspec:replicas:1selector:matchLabels:app:nexustemplate:metadata:labels:app:nexusspec:containers:- name:nexusimage:sonatype/nexus3ports:- containerPort:8081volumeMounts:- mountPath:/nexus-dataname:nexus-datavolumes:- name:nexus-datapersistentVolumeClaim:claimName:nexus-data-pvc---apiVersion:v1kind:Servicemetadata:name:nexusspec:selector:app:nexusports:- name:webport:80targetPort:8081---apiVersion:extensions/v1beta1kind:Ingressmetadata:name:nexusannotations:kubernetes.io/ingress.class:nginxspec:rules:- host:nexus.domain.comhttp:paths:- path:/backend:serviceName:nexusservicePort:80部署 Nexus 服务 kubectl create -f nexus.yaml 使用 hostPath 创建的 PV 可能会碰到 Permission Denied 问题，可以使用以下方法解决：
+在 Pod template spec 声明处添加：
+initContainers:- name:nexus-data-permissionimage:busybox:latestcommand:[&amp;#34;sh&amp;#34;,&amp;#34;-c&amp;#34;,&amp;#34;chown -R 200:200 /nexus-data&amp;#34;]volumeMounts:- name:nexus-datamountPath:/nexus-data配置 Maven Repository 获取 admin 账户的密码：
+kubectl exec po/nexus-pod -- cat /nexus-data/admin.password 打开配置界面，选择 Repositories&amp;gt;maven-central, 设置 Proxy 下的 Romote storage：
+使用阿里云的仓库：http://maven.aliyun.com/nexus/content/repositories/central
+  参考资源  Kubernetes: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/ StackOverflow: https://stackoverflow.com/questions/49042648/read-only-error-when-creating-a-mounting-a-pvc-in-ibm-cloud-kubernetes  </description>
+    </item>
+    
+  </channel>
+</rss>
